@@ -1,0 +1,50 @@
+require '/usr/local/lib/site_ruby/1.8/RNotify.rb'
+puts 'Autotest Hook: loading LibNotify'
+Notify.init('Rake Autotest') || raise('Failed to initialize LibNotify')
+puts 'Autotest Hook: initializing tray icon'
+$tray_icon = Gtk::StatusIcon.new
+$tray_icon.icon_name = 'emblem-fun'
+$tray_icon.tooltip = 'RSpec Autotest'
+puts 'Autotest Hook: Creating Notifier'
+$notification = Notify::Notification.new('X',nil,nil,$tray_icon)
+$notification.timeout = 5000
+
+puts 'Autotest Hook: Loading Autotest Images'
+image_root = "/home/nomad/.misc/autotest_images"
+$png_fail    = Gdk::Pixbuf.new("#{image_root}/fail.png",   48,48)
+$png_pass    = Gdk::Pixbuf.new("#{image_root}/pass.png",   48,48)
+$png_pending = Gdk::Pixbuf.new("#{image_root}/pending.png",48,48)
+
+Thread.new { Gtk.main }
+sleep 5
+$tray_icon.embedded? || raise('Failed to set up tray icon')
+
+Autotest.add_hook :ran_command do |at|
+  results = [at.results].flatten.join("\n")
+  md = results.match(/(\d+)\sexample[s]?,\s(\d+)\sfailure[s]?(,\s\d+\spending)?/)
+  mdpi = 0
+  if md
+    if md[3] 
+      mdpi = md[3].match(/(\d+)/)[1].to_i
+    end
+    if md[2].to_i > 0
+      $notification.update('FAIL',md[0],nil)
+      $notification.pixbuf_icon = $png_fail
+    elsif mdpi > 0
+      $notification.update('Pending',md[0],nil)
+      $notification.pixbuf_icon = $png_pending
+    else
+      $notification.update('Success',md[0],nil)
+      $notification.pixbuf_icon = $png_pass
+    end
+    $tray_icon.tooltip = "Last Result: #{md[0]}"
+    $notification.show
+  end
+end
+
+Autotest.add_hook :quit do |at|
+  puts 'Autotest Hook: Shutting Down...'
+  Notify.uninit
+  Gtk.main_quit
+end
+# vim:ft=ruby
