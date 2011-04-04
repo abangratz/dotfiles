@@ -2127,6 +2127,9 @@ PS4='+%N:%i:%_> ' # the execution trace prompt (setopt xtrace). default: '+%N:%i
 if [[ -z "$debian_chroot" ]] && [[ -r /etc/debian_chroot ]] ; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
+function rvm_info {
+    echo `rvm-prompt`
+}
 
 # don't use colors on dumb terminals (like emacs):
 if [[ "$TERM" == dumb ]] ; then
@@ -2135,7 +2138,7 @@ else
     # only if $GRMLPROMPT is set (e.g. via 'GRMLPROMPT=1 zsh') use the extended prompt
     # set variable identifying the chroot you work in (used in the prompt below)
     if [[ $GRMLPROMPT -gt 0 ]] ; then
-        PROMPT="${RED}${EXITCODE}${CYAN}[%j running job(s)] ${GREEN}{history#%!} ${RED}%(3L.+.) ${BLUE}%* %D
+        PROMPT="${RED}${EXITCODE}${CYAN}[%j running job(s)] ${GREEN}{history#%!} ${RED}%(3L.+.) ["'$(rvm_info)'"] ${BLUE}%* %D
 ${BLUE}%n${NO_COLOUR}@%m %40<...<%B%~%b%<< "
     else
         # This assembles the primary prompt string
@@ -2281,7 +2284,7 @@ check_com s &>/dev/null || alias s='ssh'
 
 # especially for roadwarriors using GNU screen and ssh:
 if ! check_com asc &>/dev/null ; then
-  asc() { autossh -t "$@" 'screen -DR' }
+  asc() { autossh -t "$@" 'screen -dRU' }
   compdef asc=ssh
 fi
 
@@ -2291,9 +2294,9 @@ alias top10='print -l ? ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
 # truecrypt; use e.g. via 'truec /dev/ice /mnt/ice' or 'truec -i'
 if check_com -c truecrypt ; then
     if isutfenv ; then
-        alias truec='truecrypt --mount-options "rw,sync,dirsync,users,uid=1000,gid=users,umask=077,utf8" '
+        alias truec='truecrypt --mount-options="rw,sync,dirsync,users,uid=1000,gid=users,umask=077,utf8" '
     else
-        alias truec='truecrypt --mount-options "rw,sync,dirsync,users,uid=1000,gid=users,umask=077" '
+        alias truec='truecrypt --mount-options="rw,sync,dirsync,users,uid=1000,gid=users,umask=077" '
     fi
 fi
 

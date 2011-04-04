@@ -220,11 +220,43 @@ fi
 #vimhelp ()    { vim -c "help $1" -c on -c "au! VimEnter *" }
 #
 alias ats="aptitude search"
-
+ctg() { ctags -a -e -f TAGS --tag-relative -R app lib vendor }
 
 if ! check_com ast &>/dev/null ; then
-  ast() { autossh -t "$@" 'tmux attach || tmux' }
+  ast() { autossh -t "$@" 'tmux attach -tsandman || tmux new -ssandman' }
   compdef ast=ssh
+fi
+export VISUAL='gvim -f'
+alias ack="ack-grep"
+if ! check_com acks &>/dev/null ; then
+	acks() { ack-grep $@ spec/ }
+	compdef acks=grep
+fi
+
+if ! check_com office &>/dev/null ; then
+	office() {  
+		xrandr --output HDMI1 --mode 1920x1200 
+		xrandr --output LVDS1 --mode 1366x768 --below HDMI1
+		synclient TapButton1=1
+		synclient TapButton2=2
+		synclient TapButton3=3
+	}
+fi
+
+if ! check_com home &>/dev/null ; then
+	home() {  
+		xrandr --output HDMI1 --off
+		synclient TapButton1=1
+		synclient TapButton2=2
+		synclient TapButton3=3
+	}
+fi
+
+# Keep PWD for current TMUX window
+
+if [ -n "$TMUX" ] ; then 
+	I=$(tmux display -p "#I")
+	tmux setenv TMUXPWD_${I} $PWD
 fi
 
 ## END OF FILE #################################################################
