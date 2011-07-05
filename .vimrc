@@ -1,5 +1,22 @@
 version 6.0
 set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+Bundle 'gmarik/vundle'
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-colors-solarized'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-ragtag'
+
 let s:cpo_save=&cpo
 set cpo&vim
 map! <xHome> <Home>
@@ -75,3 +92,10 @@ let g:rubycomplete_buffer_loading = 1
 let g_rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
 let g:rubycomplete_include_object = 1
+" ack
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+"FuF mappings
+nnoremap <silent> <F5> :FufBuffer<CR>
+nnoremap <silent> <S-F5> :FufTaggedFile<CR>
+nnoremap <silent> <F6> :FufFile<CR>
+nnoremap <silent> <S-F6> :FufMruFile<CR>
