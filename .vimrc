@@ -4,18 +4,27 @@ filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 Bundle 'gmarik/vundle'
+Bundle 'scrooloose/nerdtree'
 Bundle 'L9'
+Bundle 'ack.vim'
+Bundle 'utl.vim'
+Bundle 'chrisbra/NrrwRgn'
 Bundle 'FuzzyFinder'
+Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-colors-solarized'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-repeat'
+Bundle 'jceb/vim-orgmode'
 
 let s:cpo_save=&cpo
 set cpo&vim
@@ -80,7 +89,7 @@ let g:netrw_altv = 1
 filetype on
 filetype indent on
 filetype plugin on
-"nnoremap <silent> <F8> :TlistToggle<CR>
+nnoremap <silent> <F8> :TagBarToggle<CR>
 nmap <silent> <F12> <Plug>ToggleProject
 "noremap <F8> :so `vimspell.sh %`<CR><CR>
 "noremap <F7> :syntax clear SpellErrors<CR>
@@ -99,3 +108,7 @@ nnoremap <silent> <F5> :FufBuffer<CR>
 nnoremap <silent> <S-F5> :FufTaggedFile<CR>
 nnoremap <silent> <F6> :FufFile<CR>
 nnoremap <silent> <S-F6> :FufMruFile<CR>
+"org mode customization
+let g:org_todo_keywords = ['TODO', 'WORK', 'DONE', '|']
+let g:org_todo_keyword_faces = [['TODO', 'magenta'],['WORK', 'green'],['DONE', 'yellow']]
+
