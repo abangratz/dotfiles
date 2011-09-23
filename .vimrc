@@ -1,15 +1,12 @@
-version 6.0
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
-Bundle 'L9'
 Bundle 'ack.vim'
 Bundle 'utl.vim'
 Bundle 'chrisbra/NrrwRgn'
-Bundle 'FuzzyFinder'
 Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-speeddating'
@@ -25,7 +22,7 @@ Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-repeat'
 Bundle 'jceb/vim-orgmode'
-
+Bundle 'Command-T'
 let s:cpo_save=&cpo
 set cpo&vim
 map! <xHome> <Home>
@@ -75,6 +72,7 @@ set nohlsearch
 set showmatch
 set modeline
 set modelines=5
+set number
 iab YDT         <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 ia  DATE		<C-R>=strftime("%F %T %z")<CR>
 ia  SDATENUM      <C-R>=strftime("%Y%m%d001")<CR>
@@ -89,10 +87,7 @@ let g:netrw_altv = 1
 filetype on
 filetype indent on
 filetype plugin on
-nnoremap <silent> <F8> :TagBarToggle<CR>
-nmap <silent> <F12> <Plug>ToggleProject
-"noremap <F8> :so `vimspell.sh %`<CR><CR>
-"noremap <F7> :syntax clear SpellErrors<CR>
+nnoremap <silent> <F8> :TagbarToggle<CR>
 let spell_language_list="de_AT,en_US"
 let spell_executable="aspell"
 " ruby stuff: completion
