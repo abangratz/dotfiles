@@ -6,23 +6,24 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ack.vim'
 Bundle 'utl.vim'
+Bundle 'matchit.zip'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'majutsushi/tagbar'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-speeddating'
-Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-endwise'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-repeat'
 Bundle 'jceb/vim-orgmode'
-Bundle 'Command-T'
+"Bundle 'Command-T'
 let s:cpo_save=&cpo
 set cpo&vim
 map! <xHome> <Home>
@@ -106,4 +107,9 @@ nnoremap <silent> <S-F6> :FufMruFile<CR>
 "org mode customization
 let g:org_todo_keywords = ['TODO', 'WORK', 'DONE', '|']
 let g:org_todo_keyword_faces = [['TODO', 'magenta'],['WORK', 'green'],['DONE', 'yellow']]
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+let g:rails_statusline = 0
+" Rails navigation commands
+autocmd User Rails silent! Rnavcommand feature features -glob=* -suffix=.feature
+autocmd User Rails silent! Rnavcommand steps features/step_definitions -glob=**/* -suffix=_steps.rb
 
