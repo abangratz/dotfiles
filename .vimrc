@@ -23,7 +23,7 @@ Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-repeat'
 Bundle 'jceb/vim-orgmode'
-"Bundle 'Command-T'
+Bundle 'Command-T'
 let s:cpo_save=&cpo
 set cpo&vim
 map! <xHome> <Home>
@@ -113,3 +113,4 @@ let g:rails_statusline = 0
 autocmd User Rails silent! Rnavcommand feature features -glob=* -suffix=.feature
 autocmd User Rails silent! Rnavcommand steps features/step_definitions -glob=**/* -suffix=_steps.rb
 
+let g:CommandTScanDotDirectories = 1
