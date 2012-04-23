@@ -1,5 +1,5 @@
 *xterm*transparent: on
 *xterm*transpscrollbar: off
 *xterm*shading: 30
-*xterm*reverseVideo: on
+*xterm*reverseVideo: off
 *xterm*font: -xos4-terminus-medium-r-normal-*-*-*-100-100-c-*-iso10646-1
