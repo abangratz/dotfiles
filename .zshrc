@@ -2128,7 +2128,12 @@ if [[ -z "$debian_chroot" ]] && [[ -r /etc/debian_chroot ]] ; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 function rvm_info {
-    echo `rvm-prompt`
+    which rvm-prompt 2>&1 > /dev/null
+    if [ $? == 0 ]; then
+        echo `rvm-prompt 2>/dev/null` 
+    else
+        echo "no rvm"
+    fi
 }
 
 # don't use colors on dumb terminals (like emacs):
@@ -4349,3 +4354,5 @@ zrclocal
 # Local variables:
 # mode: sh
 # End:
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

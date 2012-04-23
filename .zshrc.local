@@ -259,4 +259,8 @@ if [ -n "$TMUX" ] ; then
 	tmux setenv TMUXPWD_${I} $PWD
 fi
 
+path=($HOME/bin $path)
+
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
 ## END OF FILE #################################################################
