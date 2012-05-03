@@ -1,0 +1,21 @@
+[user]
+	name = Anton Bangratz
+	email = anton.bangratz@gmail.com
+[merge]
+	tool = kdiff3
+	log = true
+[alias]
+	ci = commit
+	co = checkout
+	st = status
+[color]
+	status = auto
+	ui = auto
+[rerere]
+	enabled = true
+[push]
+	default = current
+[core]
+	excludesfile = ~/.gitignore.global
+[branch]
+	autosetupmerge = always
