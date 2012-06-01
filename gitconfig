@@ -1,6 +1,6 @@
 [user]
-	name = Anton Bangratz
-	email = anton.bangratz@gmail.com
+	name = Andreas Kopecky 
+	email = andreas.kopecky@gmail.com
 [merge]
 	tool = kdiff3
 	log = true
@@ -8,7 +8,7 @@
 	ci = commit
 	co = checkout
 	b = branch
-	st = status
+	s = status
 	d = diff
 [color]
 	status = auto
