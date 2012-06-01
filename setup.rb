@@ -1,10 +1,7 @@
 home = File.expand_path("~")
 target_dir = File.expand_path(File.dirname(__FILE__))
 
-dotfiles = Dir["*"] - %w[.git]
-
-p dotfiles
-exit
+dotfiles = Dir["*"] - %w[.git setup.rb]
 
 dotfiles.each do |dotfile|
   dotfilename = ".#{dotfile}"
