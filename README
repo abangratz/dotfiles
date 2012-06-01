@@ -1,1 +1,5 @@
 My Dotfiles. Use with care, feel free to share.
+
+Run ''ruby setup.rb'' to automagically backup old dotfiles and symlink the files here in your home directory.
+
+May mess up system. YOU HAVE BEEN WARNED!

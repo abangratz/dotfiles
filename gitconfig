@@ -8,7 +8,7 @@
 	ci = commit
 	co = checkout
 	b = branch
-	s = status
+	st = status
 	d = diff
 [color]
 	status = auto
