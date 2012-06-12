@@ -1,4 +1,4 @@
-export BROWSER=chromium-browser
+export BROWSER=chromium
 export GRMLPROMPT=1
 export BATTERY=1
 export EDITOR=gvim
