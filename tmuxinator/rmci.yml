@@ -1,0 +1,15 @@
+# ~/.tmuxinator/ric.yml
+# you can make as many tabs as you wish...
+
+project_name: rmci
+project_root: ~/projects/github/base-camp-dev/radar-management-center-importer
+#rvm: 1.9.3-p125@rails3
+#pre: sudo /etc/rc.d/mysqld start
+tabs:
+  # - spork: spork -p 8993
+  # - autotest: autotest -f -c
+  - shell: git pull
+  #- server: rails s -p 8086
+  #- logs: tail -f log/development.log
+  #- console: rails c
+  - zsh:
