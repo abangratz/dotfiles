@@ -9,6 +9,7 @@ Bundle 'utl.vim'
 Bundle 'matchit.zip'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'majutsushi/tagbar'
+Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-fugitive'
@@ -102,10 +103,6 @@ let g:org_todo_keywords = ['TODO', 'WORK', 'DONE', '|']
 let g:org_todo_keyword_faces = [['TODO', 'magenta'],['WORK', 'green'],['DONE', 'yellow']]
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 let g:rails_statusline = 0
-" Rails navigation commands
-autocmd User Rails silent! Rnavcommand feature features -glob=* -suffix=.feature
-autocmd User Rails silent! Rnavcommand steps features/step_definitions -glob=**/* -suffix=_steps.rb
-autocmd User Rails silent! Rnavcommand presenter app/presenters -glob=* -suffix=_presenter.rb
 
 let g:CommandTScanDotDirectories = 1
 set wildignore+=vendor/**,tmp/**
