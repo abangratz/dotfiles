@@ -24,9 +24,12 @@ Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-repeat'
 Bundle 'jceb/vim-orgmode'
-Bundle 'Command-T'
+Bundle 'kien/ctrlp.vim'
 Bundle 'groenewege/vim-less'
 Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'mbbill/undotree'
+Bundle 'ShowTrailingWhitespace'
+Bundle 'DeleteTrailingWhitespace'
 let s:cpo_save=&cpo
 set cpo&vim
 map! <xHome> <Home>
@@ -108,8 +111,13 @@ let g:CommandTScanDotDirectories = 1
 set wildignore+=vendor/**,tmp/**
 " less settings
 au FileType less setl sw=2 sts=2 et
+au FileType cucumber setl sw=2 sts=2 et
 " Rainbow Parentheses settings
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+" Show Trailing Whitespace
+let g:ShowTrailingWhitespace = 1
+let g:DeleteTrailingWhitespace = 1
+let g:DeleteTrailingWhitespace_Action = 'delete'

@@ -2,3 +2,5 @@ TAGS
 tags
 .*.swp
 /.rvmrc
+/.ruby-version
+/.ruby-gemset
