@@ -227,7 +227,6 @@ if ! check_com ast &>/dev/null ; then
   compdef ast=ssh
 fi
 export VISUAL='gvim -f'
-alias ack="ack-grep"
 if ! check_com acks &>/dev/null ; then
 	acks() { ack-grep $@ spec/ }
 	compdef acks=grep
@@ -259,7 +258,7 @@ if [ -n "$TMUX" ] ; then
 	tmux setenv TMUXPWD_${I} $PWD
 fi
 
-path=($HOME/bin $path)
+path=($HOME/bin $path /opt/ruby2.0-preview/bin)
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 

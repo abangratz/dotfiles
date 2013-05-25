@@ -9,6 +9,7 @@ Bundle 'utl.vim'
 Bundle 'matchit.zip'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'majutsushi/tagbar'
+Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-fugitive'
@@ -26,6 +27,8 @@ Bundle 'tpope/vim-sleuth'
 Bundle 'vim-scripts/VimClojure'
 Bundle 'jceb/vim-orgmode'
 Bundle 'kien/ctrlp.vim'
+Bundle 'groenewege/vim-less'
+Bundle 'kien/rainbow_parentheses.vim'
 let s:cpo_save=&cpo
 set cpo&vim
 map! <xHome> <Home>
@@ -66,8 +69,6 @@ set sw=4
 set ts=4
 set bg=dark
 "set digraph " unset, no good for programming when you have compose
-let php_folding=2
-let php_sync_method=0
 set smartindent
 set softtabstop=4
 set smarttab
@@ -94,18 +95,11 @@ nnoremap <silent> <F8> :TagbarToggle<CR>
 let spell_language_list="de_AT,en_US"
 let spell_executable="aspell"
 " ruby stuff: completion
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete " Keep that for v7
-let g:rubycomplete_buffer_loading = 1
-let g_rubycomplete_classes_in_global = 1
-let g:rubycomplete_rails = 1
-let g:rubycomplete_include_object = 1
-" ack
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-"FuF mappings
-nnoremap <silent> <F5> :FufBuffer<CR>
-nnoremap <silent> <S-F5> :FufTaggedFile<CR>
-nnoremap <silent> <F6> :FufFile<CR>
-nnoremap <silent> <S-F6> :FufMruFile<CR>
+" autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete " Keep that for v7
+" let g:rubycomplete_buffer_loading = 1
+" let g_rubycomplete_classes_in_global = 1
+" let g:rubycomplete_rails = 1
+" let g:rubycomplete_include_object = 1
 "org mode customization
 let g:org_todo_keywords = ['TODO', 'WORK', 'DONE', '|']
 let g:org_todo_keyword_faces = [['TODO', 'magenta'],['WORK', 'green'],['DONE', 'yellow']]
@@ -116,3 +110,11 @@ autocmd FileType ruby setlocal ts=2
 autocmd FileType ruby setlocal sts=2
 autocmd FileType ruby setlocal sta
 autocmd FileType ruby setlocal et
+set wildignore+=vendor/**,tmp/**
+" less settings
+au FileType less setl sw=2 sts=2 et
+" Rainbow Parentheses settings
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
