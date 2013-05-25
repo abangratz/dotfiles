@@ -1,0 +1,15 @@
+# ~/.tmuxinator/ric.yml
+# you can make as many tabs as you wish...
+
+project_name: penapi
+project_root: ~/projects/github/abangratz/penpusher-api
+#rvm: 1.9.3-p125@rails3
+#pre: sudo /etc/rc.d/mysqld start
+tabs:
+  - spork: spork
+  - autotest: bundle exec autotest -f -c
+  - shell: git pull
+  - server: rails s -p 3001
+  - logs: tail -f log/development.log
+  - console: rails c
+  - zsh:

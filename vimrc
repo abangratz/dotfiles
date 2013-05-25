@@ -22,8 +22,10 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-sleuth'
+Bundle 'vim-scripts/VimClojure'
 Bundle 'jceb/vim-orgmode'
-Bundle 'Command-T'
+Bundle 'kien/ctrlp.vim'
 let s:cpo_save=&cpo
 set cpo&vim
 map! <xHome> <Home>
@@ -109,8 +111,8 @@ let g:org_todo_keywords = ['TODO', 'WORK', 'DONE', '|']
 let g:org_todo_keyword_faces = [['TODO', 'magenta'],['WORK', 'green'],['DONE', 'yellow']]
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 let g:rails_statusline = 0
-" Rails navigation commands
-autocmd User Rails silent! Rnavcommand feature features -glob=* -suffix=.feature
-autocmd User Rails silent! Rnavcommand steps features/step_definitions -glob=**/* -suffix=_steps.rb
-
-let g:CommandTScanDotDirectories = 1
+autocmd FileType ruby setlocal sw=2
+autocmd FileType ruby setlocal ts=2
+autocmd FileType ruby setlocal sts=2
+autocmd FileType ruby setlocal sta
+autocmd FileType ruby setlocal et
