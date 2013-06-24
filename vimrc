@@ -23,6 +23,8 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-sleuth'
+Bundle 'vim-scripts/VimClojure'
 Bundle 'jceb/vim-orgmode'
 Bundle 'kien/ctrlp.vim'
 Bundle 'groenewege/vim-less'
@@ -106,8 +108,11 @@ let g:org_todo_keywords = ['TODO', 'WORK', 'DONE', '|']
 let g:org_todo_keyword_faces = [['TODO', 'magenta'],['WORK', 'green'],['DONE', 'yellow']]
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 let g:rails_statusline = 0
-
-let g:CommandTScanDotDirectories = 1
+autocmd FileType ruby setlocal sw=2
+autocmd FileType ruby setlocal ts=2
+autocmd FileType ruby setlocal sts=2
+autocmd FileType ruby setlocal sta
+autocmd FileType ruby setlocal et
 set wildignore+=vendor/**,tmp/**
 " less settings
 au FileType less setl sw=2 sts=2 et

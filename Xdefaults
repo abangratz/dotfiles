@@ -3,7 +3,7 @@ URxvt*background: Black
 URxvt*transparent: on
 URxvt*transpscrollbar: off
 URxvt*shading: 30
-URxvt*reverseVideo: off
+URxvt*reverseVideo: on
 URxvt*font: -xos4-terminus-medium-r-normal-*-14-*-*-*-c-*-iso10646-1
 URxvt*scrollBar:false
 URxvt*scrollBar_right:true
