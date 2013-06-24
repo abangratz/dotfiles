@@ -2130,7 +2130,7 @@ fi
 function rvm_info {
     which rvm-prompt 2>&1 > /dev/null
     if [ $? == 0 ]; then
-        echo `rvm-prompt 2>/dev/null` 
+        echo `rvm-prompt 2>/dev/null`
     else
         echo "no rvm"
     fi
@@ -2143,8 +2143,13 @@ else
     # only if $GRMLPROMPT is set (e.g. via 'GRMLPROMPT=1 zsh') use the extended prompt
     # set variable identifying the chroot you work in (used in the prompt below)
     if [[ $GRMLPROMPT -gt 0 ]] ; then
+		if [[ -n "$debian_chroot" ]]; then
+        PROMPT="${bg[blue]}${RED}${EXITCODE}${WHITE}${debian_chroot:-}${CYAN}[%j running job(s)] ${GREEN}{history#%!} ${RED}%(3L.+.) ["'$(rvm_info)'"] ${WHITE}%* %D
+${WHITE}%n${NO_COLOUR}@%m %40<...<%B%~%b%<< "
+		else
         PROMPT="${RED}${EXITCODE}${CYAN}[%j running job(s)] ${GREEN}{history#%!} ${RED}%(3L.+.) ["'$(rvm_info)'"] ${BLUE}%* %D
 ${BLUE}%n${NO_COLOUR}@%m %40<...<%B%~%b%<< "
+		fi
     else
         # This assembles the primary prompt string
         if (( EUID != 0 )); then
