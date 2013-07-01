@@ -566,9 +566,9 @@ fi
 
 ## keybindings (run 'bindkeys' for details, more details via man zshzle)
 # use emacs style per default:
-bindkey -e
+# bindkey -e
 # use vi style:
-# bindkey -v
+bindkey -v
 
 #if [[ "$TERM" == screen ]] ; then
 bindkey '\e[1~' beginning-of-line       # home
