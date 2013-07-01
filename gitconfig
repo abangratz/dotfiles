@@ -11,6 +11,7 @@
 	st = status
 	d = diff
 	ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	l10 = log --oneline -10
 [color]
 	status = auto
 	ui = auto
