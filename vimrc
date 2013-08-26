@@ -3,6 +3,7 @@ filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 Bundle 'gmarik/vundle'
+Bundle 'vim-ruby/vim-ruby'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ack.vim'
 Bundle 'utl.vim'
@@ -99,10 +100,10 @@ let spell_language_list="de_AT,en_US"
 let spell_executable="aspell"
 " ruby stuff: completion
 " autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete " Keep that for v7
-" let g:rubycomplete_buffer_loading = 1
-" let g_rubycomplete_classes_in_global = 1
-" let g:rubycomplete_rails = 1
-" let g:rubycomplete_include_object = 1
+let g:rubycomplete_buffer_loading = 1
+let g_rubycomplete_classes_in_global = 1
+let g:rubycomplete_rails = 1
+let g:rubycomplete_include_object = 1
 "org mode customization
 let g:org_todo_keywords = ['TODO', 'WORK', 'DONE', '|']
 let g:org_todo_keyword_faces = [['TODO', 'magenta'],['WORK', 'green'],['DONE', 'yellow']]
