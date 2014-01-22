@@ -3,7 +3,7 @@ require 'erb'
 home = File.expand_path("~")
 target_dir = File.expand_path(File.dirname(__FILE__))
 
-dotfiles = Dir["*"] - %w[.git setup.rb templates]
+dotfiles = Dir["*"] - %w[.git setup.rb templates awesome]
 
 dotfiles.each do |dotfile|
   dotfilename = ".#{dotfile}"
@@ -26,5 +26,5 @@ templatefiles.each do |filename|
   end
 end
 
-FileUtils.mkdir_p(File.join(home, 'projects', 'github', 'other')) 
+FileUtils.mkdir_p(File.join(home, 'projects', 'github', 'other'))
 puts `git clone https://github.com/muennich/urxvt-perls #{home}/projects/github/other/urxvt-perls` unless File.exist?("#{home}/projects/github/other/urxvt-perls")
