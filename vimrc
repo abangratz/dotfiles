@@ -33,6 +33,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'mbbill/undotree'
 Bundle 'ShowTrailingWhitespace'
 Bundle 'DeleteTrailingWhitespace'
+Bundle 'kchmck/vim-coffee-script'
 let s:cpo_save=&cpo
 set cpo&vim
 map! <xHome> <Home>
