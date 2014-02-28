@@ -1,0 +1,8 @@
+set searchengines+={"d":"https://duckduckgo.com/?q={{keyword}}"}
+set disablesites=mail.google.com
+map x D
+map J gt
+map K gT
+set useletters=0
+set previouspattern+=^(?:< )?Prev$
+set nextpattern+=^Next(?: >)?$
