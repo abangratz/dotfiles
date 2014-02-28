@@ -233,8 +233,8 @@ if ! check_com acks &>/dev/null ; then
 fi
 
 if ! check_com office &>/dev/null ; then
-	office() {  
-		xrandr --output HDMI1 --mode 1920x1200 
+	office() {
+		xrandr --output HDMI1 --mode 1920x1200
 		xrandr --output LVDS1 --mode 1366x768 --below HDMI1
 		synclient TapButton1=1
 		synclient TapButton2=2
@@ -243,7 +243,7 @@ if ! check_com office &>/dev/null ; then
 fi
 
 if ! check_com home &>/dev/null ; then
-	home() {  
+	home() {
 		xrandr --output HDMI1 --off
 		synclient TapButton1=1
 		synclient TapButton2=2
@@ -253,13 +253,14 @@ fi
 
 # Keep PWD for current TMUX window
 
-if [ -n "$TMUX" ] ; then 
+if [ -n "$TMUX" ] ; then
 	I=$(tmux display -p "#I")
 	tmux setenv TMUXPWD_${I} $PWD
 fi
 
 path=($HOME/bin $path /opt/ruby2.0-preview/bin)
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 ## END OF FILE #################################################################

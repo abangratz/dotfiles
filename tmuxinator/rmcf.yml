@@ -3,13 +3,13 @@
 
 project_name: rmcf
 project_root: ~/projects/github/rs-dev/radar-management-center-frontend
-#rvm: 1.9.3-p125@rails3
+#rvm: 1.9.3-p125@bin/rails3
 #pre: sudo /etc/rc.d/mysqld start
-tabs:
-  - spork: spork --port 8990
+windows:
+  - guard: guard
   - autotest: autotest -f -c
   - shell: git pull
-  - server: rails s
+  - server: bin/rails s
   - logs: tail -f log/development.log
-  - console: rails c
+  - console: bin/rails c
   - zsh:

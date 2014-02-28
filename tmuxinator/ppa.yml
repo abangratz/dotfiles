@@ -6,7 +6,7 @@ project_root: ~/projects/github/abangratz/penpusher-api
 #rvm: 1.9.3-p125@rails3
 #pre: sudo /etc/rc.d/mysqld start
 tabs:
-  - spork: spork
+  - guard: guard
   - autotest: bundle exec autotest -f -c
   - shell: git pull
   - server: rails s -p 3001

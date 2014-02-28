@@ -3,6 +3,7 @@ filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 Bundle 'gmarik/vundle'
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ack.vim'
@@ -33,6 +34,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'mbbill/undotree'
 Bundle 'ShowTrailingWhitespace'
 Bundle 'DeleteTrailingWhitespace'
+Bundle 'lmeijvogel/vim-yaml-helper'
 let s:cpo_save=&cpo
 set cpo&vim
 map! <xHome> <Home>
@@ -114,7 +116,9 @@ autocmd FileType ruby setlocal ts=2
 autocmd FileType ruby setlocal sts=2
 autocmd FileType ruby setlocal sta
 autocmd FileType ruby setlocal et
-set wildignore+=vendor/**,tmp/**
+set wildignore+=*/vendor/*
+set wildignore+=*/tmp/*
+let g:ctrlp_custom_ignore = '\v[\/](vendor|coverage)/'
 " less settings
 au FileType less setl sw=2 sts=2 et
 au FileType cucumber setl sw=2 sts=2 et
