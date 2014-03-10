@@ -6,3 +6,5 @@ map K gT
 set useletters=0
 set previouspattern+=^(?:< )?Prev$
 set nextpattern+=^Next(?: >)?$
+" let disabled text disappear, which else is blocking screen real estate in gmail
+set show_disabled_text=0
