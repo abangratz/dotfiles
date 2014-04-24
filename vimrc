@@ -35,6 +35,7 @@ Bundle 'mbbill/undotree'
 Bundle 'ShowTrailingWhitespace'
 Bundle 'DeleteTrailingWhitespace'
 Bundle 'lmeijvogel/vim-yaml-helper'
+Bundle 'drmikehenry/vim-fontsize'
 let s:cpo_save=&cpo
 set cpo&vim
 map! <xHome> <Home>
