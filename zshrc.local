@@ -264,10 +264,7 @@ path+=("$HOME/bin" "$HOME/.rvm/bin")
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 alias ack=ack-grep
-synclient TapButton1=1
-synclient TapButton2=3
-synclient TapButton3=2
-synclient CircularScrolling=1
-synclient CircScrollTrigger=1
+alias hdeploy="git push origin master && git push heroku master"
+alias hdbm='heroku run rake db:migrate'
 
 ## END OF FILE #################################################################
