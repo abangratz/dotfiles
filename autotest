@@ -1,4 +1,4 @@
-require 'test_notifier/runner/autotest'
-TestNotifier.default_notifier = :notify_send
+# require 'test_notifier/runner/autotest'
+# TestNotifier.default_notifier = :notify_send
 
 # vim:ft=ruby

@@ -35,6 +35,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'mbbill/undotree'
 Bundle 'ShowTrailingWhitespace'
 Bundle 'DeleteTrailingWhitespace'
+Bundle 'drmikehenry/vim-fontsize'
 let s:cpo_save=&cpo
 set cpo&vim
 map! <xHome> <Home>
@@ -117,6 +118,7 @@ autocmd FileType ruby setlocal sts=2
 autocmd FileType ruby setlocal sta
 autocmd FileType ruby setlocal et
 set wildignore+=*vendor/*,*/tmp/*,*/.git/*,*/log/*
+let g:ctrlp_custom_ignore = '\v[\/](vendor|coverage)/'
 " less settings
 au FileType less setl sw=2 sts=2 et
 au FileType cucumber setl sw=2 sts=2 et

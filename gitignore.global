@@ -3,3 +3,4 @@ tags
 .*.swp
 /.rvmrc
 /.ruby-*
+config/projections.json
