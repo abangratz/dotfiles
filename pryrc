@@ -136,7 +136,7 @@ require 'pry-debugger'
 require 'coolline'
 require 'coderay'
 require 'binding_of_caller'
-AwesomePrint.pry!
+# AwesomePrint.pry!
 red  = ->(text) { Pry.color ? "\001\e[0;31m\002#{text}\001\e[0m\002" : text.to_s }
 blue = ->(text) { Pry.color ? "\001\e[0;34m\002#{text}\001\e[0m\002" : text.to_s }
 bold = ->(text) { Pry.color ? "\001\e[1m\002#{text}\001\e[0m\002"    : text.to_s }
