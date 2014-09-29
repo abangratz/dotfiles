@@ -220,6 +220,14 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
 
+    awful.key({                   }, "XF86KbdBrightnessDown",
+      function ()
+         os.execute('~/bin/kbd.sh down')
+      end),
+    awful.key({                   }, "XF86KbdBrightnessUp",
+      function ()
+         os.execute('~/bin/kbd.sh up')
+      end),
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
