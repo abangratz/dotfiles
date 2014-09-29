@@ -16,6 +16,7 @@ Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-fugitive'
+Bundle 'mhinz/vim-signify'
 Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-haml'
@@ -36,6 +37,11 @@ Bundle 'mbbill/undotree'
 Bundle 'ShowTrailingWhitespace'
 Bundle 'DeleteTrailingWhitespace'
 Bundle 'drmikehenry/vim-fontsize'
+Bundle 'bling/vim-bufferline'
+Bundle 'bling/vim-airline'
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'paredit.vim'
+
 let s:cpo_save=&cpo
 set cpo&vim
 map! <xHome> <Home>
