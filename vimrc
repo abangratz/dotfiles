@@ -117,7 +117,7 @@ autocmd FileType ruby setlocal ts=2
 autocmd FileType ruby setlocal sts=2
 autocmd FileType ruby setlocal sta
 autocmd FileType ruby setlocal et
-set wildignore+=*vendor/*,*/tmp/*,*/.git/*,*/log/*
+set wildignore+=*vendor/*,*/tmp/*,*/.git/*,*/log/*,tags
 let g:ctrlp_custom_ignore = '\v[\/](vendor|coverage)/'
 " less settings
 au FileType less setl sw=2 sts=2 et
