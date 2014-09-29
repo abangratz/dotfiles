@@ -129,14 +129,18 @@ Pry.config.hooks.add_hook(:when_started, :debundle){ Pry.debundle! }
 # into your Pry.
 Pry.config.hooks.add_hook(:after_eval, :debundle){ Pry.debundle! }
 Pry.debundle!
-require 'awesome_print'
-require 'pry-remote'
-require 'pry-stack_explorer'
-require 'pry-debugger'
-require 'coolline'
-require 'coderay'
-require 'binding_of_caller'
-# AwesomePrint.pry!
+begin
+  require 'awesome_print'
+  require 'pry-remote'
+  require 'pry-stack_explorer'
+  require 'pry-debugger'
+  require 'coolline'
+  require 'coderay'
+  require 'binding_of_caller'
+AwesomePrint.pry!
+rescue LoadError
+  nil
+end
 red  = ->(text) { Pry.color ? "\001\e[0;31m\002#{text}\001\e[0m\002" : text.to_s }
 blue = ->(text) { Pry.color ? "\001\e[0;34m\002#{text}\001\e[0m\002" : text.to_s }
 bold = ->(text) { Pry.color ? "\001\e[1m\002#{text}\001\e[0m\002"    : text.to_s }

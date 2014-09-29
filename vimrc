@@ -16,6 +16,7 @@ Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-fugitive'
+Bundle 'mhinz/vim-signify'
 Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-haml'
@@ -36,6 +37,11 @@ Bundle 'mbbill/undotree'
 Bundle 'ShowTrailingWhitespace'
 Bundle 'DeleteTrailingWhitespace'
 Bundle 'drmikehenry/vim-fontsize'
+Bundle 'bling/vim-bufferline'
+Bundle 'bling/vim-airline'
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'paredit.vim'
+
 let s:cpo_save=&cpo
 set cpo&vim
 map! <xHome> <Home>
@@ -110,7 +116,7 @@ let g:rubycomplete_include_object = 1
 "org mode customization
 let g:org_todo_keywords = ['TODO', 'WORK', 'DONE', '|']
 let g:org_todo_keyword_faces = [['TODO', 'magenta'],['WORK', 'green'],['DONE', 'yellow']]
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+"set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 let g:rails_statusline = 0
 autocmd FileType ruby setlocal sw=2
 autocmd FileType ruby setlocal ts=2
@@ -132,3 +138,22 @@ let g:ShowTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace_Action = 'delete'
 au Syntax * syntax keyword myTodo containedin=.*Comment contained WARNING NOTE
+"use symbols in vim-airline
+let g:airline_powerline_fonts=0
+
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" powerline symbols
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
