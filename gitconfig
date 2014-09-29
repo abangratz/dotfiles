@@ -2,7 +2,7 @@
 	name = Anton Bangratz
 	email = anton.bangratz@gmail.com
 [merge]
-	tool = kdiff3
+	tool = gvimdiff
 	log = true
 [alias]
 	ci = commit
@@ -23,3 +23,5 @@
 	excludesfile = ~/.gitignore.global
 [branch]
 	autosetupmerge = always
+[diff]
+	tool = vimdiff
