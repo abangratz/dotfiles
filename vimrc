@@ -139,16 +139,14 @@ let g:DeleteTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace_Action = 'delete'
 au Syntax * syntax keyword myTodo containedin=.*Comment contained WARNING NOTE
 "use symbols in vim-airline
-let g:airline_powerline_fonts=0
+let g:airline_powerline_fonts=1
 
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
 
 " unicode symbols
-let g:airline_left_sep = '»'
 let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
 let g:airline_right_sep = '◀'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.whitespace = 'Ξ'
