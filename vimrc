@@ -136,24 +136,27 @@ au Syntax * RainbowParenthesesLoadBraces
 " Show Trailing Whitespace
 let g:ShowTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace = 1
-let g:DeleteTrailingWhitespace_Action = 'delete'
+let g:DeleteTrailingWhitespace_Action = 'ask'
 au Syntax * syntax keyword myTodo containedin=.*Comment contained WARNING NOTE
 "use symbols in vim-airline
-let g:airline_powerline_fonts=0
+
+set fillchars=stl:\ ,stlnc:\ "
+" let g:airline_powerline_fonts=0
 
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
 
-" unicode symbols
-let g:airline_left_sep = '»'
+" " unicode symbols
+" let g:airline_left_sep = '»'
 let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
+" let g:airline_right_sep = '«'
 let g:airline_right_sep = '◀'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.whitespace = 'Ξ'
 
-" powerline symbols
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
+" " powerline symbols
+" let g:airline_symbols.branch = ''
+" let g:airline_symbols.readonly = ''
+" let g:airline_symbols.linenr = ''
+" let g:airline_symbols.space = "\u20"
