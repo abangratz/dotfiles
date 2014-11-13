@@ -1,3 +1,4 @@
+export PAGER=most
 export BROWSER=chromium
 export GRMLPROMPT=1
 export BATTERY=1

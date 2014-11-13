@@ -266,6 +266,8 @@ path+=("$HOME/bin" "$HOME/.rvm/bin")
 alias ack=ack-grep
 alias hdeploy="git push origin master && git push heroku master"
 alias hdbm='heroku run rake db:migrate'
+unalias ag
+unalias agi
 
 rvm use default
 ## END OF FILE #################################################################
