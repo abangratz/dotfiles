@@ -6,4 +6,5 @@ synclient CircularScrolling=1
 synclient CircScrollTrigger=1
 synclient PalmDetect=1
 xscreensaver -nosplash &
+xset b off
 exec ck-launch-session awesome
