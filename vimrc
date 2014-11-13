@@ -1,6 +1,6 @@
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'kchmck/vim-coffee-script'
@@ -8,10 +8,13 @@ Bundle 'lmeijvogel/vim-yaml-helper'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ack.vim'
+Bundle 'ag.vim'
 Bundle 'utl.vim'
+Bundle 'dbext.vim'
 Bundle 'matchit.zip'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'majutsushi/tagbar'
+Bundle 'tpope/vim-projectionist'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-cucumber'
@@ -31,6 +34,7 @@ Bundle 'tpope/vim-sleuth'
 Bundle 'vim-scripts/VimClojure'
 Bundle 'jceb/vim-orgmode'
 Bundle 'kien/ctrlp.vim'
+Bundle 'logstash.vim'
 Bundle 'groenewege/vim-less'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'mbbill/undotree'
@@ -58,6 +62,7 @@ vnoremap p :let current_reg = @"gvdi=current_reg
 map <xHome> <Home>
 map <xEnd> <End>
 map <S-xF4> <S-F4>
+
 map <S-xF3> <S-F3>
 map <S-xF2> <S-F2>
 map <S-xF1> <S-F1>
