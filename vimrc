@@ -1,50 +1,52 @@
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
-Bundle 'gmarik/vundle'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'lmeijvogel/vim-yaml-helper'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'scrooloose/nerdtree'
-Bundle 'ack.vim'
-Bundle 'ag.vim'
-Bundle 'utl.vim'
-Bundle 'dbext.vim'
-Bundle 'matchit.zip'
-Bundle 'chrisbra/NrrwRgn'
-Bundle 'majutsushi/tagbar'
-Bundle 'tpope/vim-projectionist'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-fugitive'
-Bundle 'mhinz/vim-signify'
-Bundle 'tpope/vim-speeddating'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-endwise'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-ragtag'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-sleuth'
-Bundle 'vim-scripts/VimClojure'
-Bundle 'jceb/vim-orgmode'
-Bundle 'kien/ctrlp.vim'
-Bundle 'logstash.vim'
-Bundle 'groenewege/vim-less'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'mbbill/undotree'
-Bundle 'ShowTrailingWhitespace'
-Bundle 'DeleteTrailingWhitespace'
-Bundle 'drmikehenry/vim-fontsize'
-Bundle 'bling/vim-bufferline'
-Bundle 'bling/vim-airline'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'paredit.vim'
+set rtp+=~/.vim/bundle/neobundle.vim
+call neobundle#begin(expand('~/.vim/bundle'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'gmarik/vundle'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'lmeijvogel/vim-yaml-helper'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'ack.vim'
+NeoBundle 'ag.vim'
+NeoBundle 'utl.vim'
+NeoBundle 'matchit.zip'
+NeoBundle 'chrisbra/NrrwRgn'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'tpope/vim-abolish'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-cucumber'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'mhinz/vim-signify'
+NeoBundle 'tpope/vim-speeddating'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-haml'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'tpope/vim-ragtag'
+NeoBundle 'tpope/vim-commentary'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-sleuth'
+NeoBundle 'vim-scripts/VimClojure'
+NeoBundle 'jceb/vim-orgmode'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'kien/rainbow_parentheses.vim'
+NeoBundle 'mbbill/undotree'
+NeoBundle 'ShowTrailingWhitespace'
+NeoBundle 'DeleteTrailingWhitespace'
+NeoBundle 'drmikehenry/vim-fontsize'
+NeoBundle 'bling/vim-bufferline'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'paredit.vim'
+call neobundle#end()
+filetype plugin on
+NeoBundleCheck
+
 
 let s:cpo_save=&cpo
 set cpo&vim
@@ -108,7 +110,6 @@ let g:proj_flags="imst"
 let g:netrw_altv = 1
 filetype on
 filetype indent on
-filetype plugin on
 nnoremap <silent> <F8> :TagbarToggle<CR>
 let spell_language_list="de_AT,en_US"
 let spell_executable="aspell"
@@ -128,7 +129,7 @@ autocmd FileType ruby setlocal ts=2
 autocmd FileType ruby setlocal sts=2
 autocmd FileType ruby setlocal sta
 autocmd FileType ruby setlocal et
-set wildignore+=*vendor/*,*/tmp/*,*/.git/*,*/log/*,tags
+set wildignore+=*vendor/*,*/tmp/*,*/.git/*,*/log/*,tags,*node_modules/*
 let g:ctrlp_custom_ignore = '\v[\/](vendor|coverage)/'
 " less settings
 au FileType less setl sw=2 sts=2 et
@@ -144,9 +145,9 @@ let g:DeleteTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace_Action = 'ask'
 au Syntax * syntax keyword myTodo containedin=.*Comment contained WARNING NOTE
 "use symbols in vim-airline
+let g:airline_powerline_fonts=1
 
 set fillchars=stl:\ ,stlnc:\ "
-" let g:airline_powerline_fonts=0
 
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
@@ -160,8 +161,9 @@ let g:airline_right_sep = '◀'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.whitespace = 'Ξ'
 
-" " powerline symbols
-" let g:airline_symbols.branch = ''
-" let g:airline_symbols.readonly = ''
-" let g:airline_symbols.linenr = ''
-" let g:airline_symbols.space = "\u20"
+" powerline symbols
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+let g:airline_symbols.space = "\u20"
+let g:signify_update_on_focusgained = 1
