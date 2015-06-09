@@ -3,16 +3,16 @@ filetype off
 set rtp+=~/.vim/bundle/neobundle.vim
 call neobundle#begin(expand('~/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'gmarik/vundle'
+"NeoBundle 'gmarik/vundle'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'lmeijvogel/vim-yaml-helper'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'ack.vim'
+"NeoBundle 'ack.vim'
 NeoBundle 'ag.vim'
 NeoBundle 'utl.vim'
 NeoBundle 'matchit.zip'
-NeoBundle 'chrisbra/NrrwRgn'
+"NeoBundle 'chrisbra/NrrwRgn'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-rails'
@@ -30,8 +30,8 @@ NeoBundle 'tpope/vim-ragtag'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-sleuth'
-NeoBundle 'vim-scripts/VimClojure'
-NeoBundle 'jceb/vim-orgmode'
+"NeoBundle 'vim-scripts/VimClojure'
+"NeoBundle 'jceb/vim-orgmode'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'kien/rainbow_parentheses.vim'
@@ -111,6 +111,7 @@ let g:netrw_altv = 1
 filetype on
 filetype indent on
 nnoremap <silent> <F8> :TagbarToggle<CR>
+nnoremap <silent> <F9> :NERDTreeToggle<CR>
 let spell_language_list="de_AT,en_US"
 let spell_executable="aspell"
 " ruby stuff: completion
@@ -161,9 +162,13 @@ let g:airline_right_sep = '◀'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.whitespace = 'Ξ'
 
-" powerline symbols
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-let g:airline_symbols.space = "\u20"
-let g:signify_update_on_focusgained = 1
+" " powerline symbols
+" let g:airline_symbols.branch = ''
+" let g:airline_symbols.readonly = ''
+" let g:airline_symbols.linenr = ''
+" let g:airline_symbols.space = "\u20"
+" PostgreSQL
+let g:dbext_default_profile_PG_event = 'type=PGSQL:user=tony:dbname=event'
+let g:dbext_default_profile_PG_falter = 'type=PGSQL:user=tony:dbname=falter'
+let g:solarized_termtrans = 1
+colorscheme solarized
