@@ -42,6 +42,7 @@ NeoBundle 'DeleteTrailingWhitespace'
 NeoBundle 'drmikehenry/vim-fontsize'
 NeoBundle 'bling/vim-bufferline'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'tpope/vim-flagship'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'paredit.vim'
 call neobundle#end()
@@ -84,6 +85,8 @@ set ruler
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.pdf
 syntax on
 set laststatus=2
+set showtabline=2
+set guioptions-=e
 set viminfo='20,\"50
 set tw=120
 set sw=4
@@ -124,7 +127,7 @@ let g:rubycomplete_include_object = 1
 "org mode customization
 let g:org_todo_keywords = ['TODO', 'WORK', 'DONE', '|']
 let g:org_todo_keyword_faces = [['TODO', 'magenta'],['WORK', 'green'],['DONE', 'yellow']]
-"set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 let g:rails_statusline = 0
 autocmd FileType ruby setlocal sw=2
 autocmd FileType ruby setlocal ts=2
@@ -133,6 +136,7 @@ autocmd FileType ruby setlocal sta
 autocmd FileType ruby setlocal et
 set wildignore+=*vendor/*,*/tmp/*,*/.git/*,*/log/*,tags,*node_modules/*
 let g:ctrlp_custom_ignore = '\v[\/](vendor|coverage)/'
+let g:ctrlp_open_new_file = 't'
 " less settings
 au FileType less setl sw=2 sts=2 et
 au FileType cucumber setl sw=2 sts=2 et
