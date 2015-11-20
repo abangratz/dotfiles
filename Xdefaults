@@ -2,6 +2,6 @@ URxvt*transparent: off
 URxvt*transpscrollbar: off
 URxvt*shading: 30
 /* URxvt*reverseVideo: on */
-URxvt*font: -xos4-terminus-medium-r-normal-*-14-*-*-*-c-*-iso10646-1
+URxvt.font:                xft:Terminus:pixelsize=14,style=regular
 URxvt*scrollBar:false
 URxvt*scrollBar_right:true

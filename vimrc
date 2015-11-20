@@ -45,6 +45,7 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'tpope/vim-flagship'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'paredit.vim'
+NeoBundle 'Matt-Deacalion/vim-systemd-syntax'
 call neobundle#end()
 filetype plugin on
 NeoBundleCheck
@@ -134,6 +135,10 @@ autocmd FileType ruby setlocal ts=2
 autocmd FileType ruby setlocal sts=2
 autocmd FileType ruby setlocal sta
 autocmd FileType ruby setlocal et
+autocmd FileType ruby call PareditInitBuffer()
+autocmd FileType javascript call PareditInitBuffer()
+autocmd FileType coffee call PareditInitBuffer()
+
 set wildignore+=*vendor/*,*/tmp/*,*/.git/*,*/log/*,tags,*node_modules/*
 let g:ctrlp_custom_ignore = '\v[\/](vendor|coverage)/'
 let g:ctrlp_open_new_file = 't'
@@ -168,10 +173,10 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.whitespace = 'Ξ'
 
 " " powerline symbols
-" let g:airline_symbols.branch = ''
-" let g:airline_symbols.readonly = ''
-" let g:airline_symbols.linenr = ''
-" let g:airline_symbols.space = "\u20"
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+let g:airline_symbols.space = " "
 " PostgreSQL
 let g:dbext_default_profile_PG_event = 'type=PGSQL:user=tony:dbname=event'
 let g:dbext_default_profile_PG_falter = 'type=PGSQL:user=tony:dbname=falter'
