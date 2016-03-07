@@ -1,54 +1,82 @@
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/neobundle.vim
-call neobundle#begin(expand('~/.vim/bundle'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'lmeijvogel/vim-yaml-helper'
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'ag.vim'
-NeoBundle 'utl.vim'
-NeoBundle 'matchit.zip'
-NeoBundle 'Shougo/vimproc.vim'
-NeoBundle 'leafgarland/typescript-vim'
-NeoBundle 'jason0x43/vim-js-indent'
-NeoBundle 'Quramy/tsuquyomi'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'tpope/vim-abolish'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-cucumber'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'mhinz/vim-signify'
-NeoBundle 'tpope/vim-speeddating'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-haml'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'tpope/vim-ragtag'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-sleuth'
-"NeoBundle 'vim-scripts/VimClojure'
-"NeoBundle 'jceb/vim-orgmode'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'kien/rainbow_parentheses.vim'
-NeoBundle 'mbbill/undotree'
-NeoBundle 'ShowTrailingWhitespace'
-NeoBundle 'DeleteTrailingWhitespace'
-NeoBundle 'drmikehenry/vim-fontsize'
-NeoBundle 'bling/vim-bufferline'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'tpope/vim-flagship'
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'paredit.vim'
-NeoBundle 'Matt-Deacalion/vim-systemd-syntax'
-call neobundle#end()
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+" Required:
+set runtimepath^=.vim/dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+call dein#begin(expand('.vim/dein'))
+
+" Let dein manage dein
+" Required:
+call dein#add('Shougo/dein.vim')
+
+" Add or remove your plugins here:
+call dein#add('Shougo/neosnippet.vim')
+call dein#add('Shougo/neosnippet-snippets')
+
+call dein#add('kchmck/vim-coffee-script')
+call dein#add('lmeijvogel/vim-yaml-helper')
+call dein#add('vim-ruby/vim-ruby')
+call dein#add('scrooloose/nerdtree')
+call dein#add('ag.vim')
+call dein#add('utl.vim')
+call dein#add('matchit.zip')
+call dein#add('Shougo/vimproc.vim')
+call dein#add('leafgarland/typescript-vim')
+call dein#add('jason0x43/vim-js-indent')
+call dein#add('Quramy/tsuquyomi')
+call dein#add('majutsushi/tagbar')
+call dein#add('tpope/vim-abolish')
+call dein#add('tpope/vim-rails')
+call dein#add('tpope/vim-cucumber')
+call dein#add('tpope/vim-fugitive')
+call dein#add('mhinz/vim-signify')
+call dein#add('tpope/vim-speeddating')
+call dein#add('tpope/vim-surround')
+call dein#add('tpope/vim-haml')
+call dein#add('tpope/vim-endwise')
+call dein#add('altercation/vim-colors-solarized')
+call dein#add('tpope/vim-markdown')
+call dein#add('tpope/vim-unimpaired')
+call dein#add('tpope/vim-ragtag')
+call dein#add('tpope/vim-commentary')
+call dein#add('tpope/vim-repeat')
+call dein#add('tpope/vim-sleuth')
+"call dein#add('vim-scripts/VimClojure')
+"call dein#add('jceb/vim-orgmode')
+call dein#add('kien/ctrlp.vim')
+call dein#add('groenewege/vim-less')
+call dein#add('kien/rainbow_parentheses.vim')
+call dein#add('mbbill/undotree')
+call dein#add('ShowTrailingWhitespace')
+call dein#add('DeleteTrailingWhitespace')
+call dein#add('drmikehenry/vim-fontsize')
+call dein#add('bling/vim-bufferline')
+call dein#add('bling/vim-airline')
+call dein#add('tpope/vim-flagship')
+call dein#add('terryma/vim-multiple-cursors')
+call dein#add('paredit.vim')
+call dein#add('Matt-Deacalion/vim-systemd-syntax')
+call dein#add('elixir-lang/vim-elixir')
+call dein#add('avdgaag/vim-phoenix')
+
+" Required:
+call dein#end()
+
+" Required:
+filetype plugin indent on
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+
+"End dein Scripts-------------------------
 filetype plugin on
-NeoBundleCheck
+syntax on
 
 
 let s:cpo_save=&cpo
@@ -84,7 +112,6 @@ set modelines=5
 set printoptions=paper:a4
 set ruler
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.pdf
-syntax on
 set laststatus=2
 set showtabline=2
 set guioptions-=e
