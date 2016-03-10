@@ -30,6 +30,8 @@ if [ -r ~/.zshrc -a -r ~/.zshrc.global -a ! -r ~/.zshrc.local ] ; then
     printf '-!-\n'
 fi
 
+[[ -a "/etc/zsh_command_not_found" ]] && . /etc/zsh_command_not_found
+
 ## Now, we'll give a few examples of what you might want to use in your
 ## .zshrc.local file (just copy'n'paste and uncomment it there):
 
@@ -222,9 +224,9 @@ fi
 alias ats="aptitude search"
 ctg() { ctags -a -e -f TAGS --tag-relative -R app lib vendor }
 
-if ! check_com ast &>/dev/null ; then
-  ast() { autossh -t "$@" 'tmux attach -tsandman || tmux new -ssandman' }
-  compdef ast=ssh
+if ! check_com a &>/dev/null ; then
+  a() { autossh -t -A "$@" 'tmux attach -tsandman || tmux new -ssandman' }
+  compdef a=ssh
 fi
 export VISUAL='gvim -f'
 if ! check_com acks &>/dev/null ; then
@@ -276,6 +278,17 @@ unalias agi
 deploy() {
     bundle exec cap $1 deploy
 }
+
+pg_db() {
+    psql postgres://postgres@db.falter:5432/event
+}
+
+pg_dbext() {
+    psql postgres://postgres@dbext.falter:5432/falter
+}
+
+alias db="TERM=xterm-color autossh -t -A db.falter 'tmux attach -tsandman || tmux new -ssandman'"
+alias crit="TERM=xterm-color autossh -t -A critical-failure.eu -lnomad 'tmux attach -tsandman || tmux new -ssandman'"
 
 rvm use default
 ## END OF FILE #################################################################
