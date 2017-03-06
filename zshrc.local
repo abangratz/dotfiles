@@ -260,6 +260,8 @@ if [ -n "$TMUX" ] ; then
 	tmux setenv TMUXPWD_${I} $PWD
 fi
 
+path+=("$HOME/.exenv/bin")
+eval "$(exenv init -)"
 export NVM_DIR="/home/nomad/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
@@ -268,30 +270,7 @@ path+=("$HOME/bin" "$HOME/.rvm/bin" )
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
-alias ack=ack-grep
-alias hdeploy="git push origin master && git push heroku master"
-alias hdbm='heroku run rake db:migrate'
-alias be='bundle exec'
-alias rs='rails server'
-alias rc='rails console'
-
-unalias ag
-unalias agi
-
-deploy() {
-    bundle exec cap $1 deploy
-}
-
-pg_db() {
-    psql postgres://postgres@db.falter:5432/event
-}
-
-pg_dbext() {
-    psql postgres://postgres@dbext.falter:5432/falter
-}
-
-alias db="TERM=xterm-color autossh -t -A db.falter 'tmux attach -tsandman || tmux new -ssandman'"
-alias crit="TERM=xterm-color autossh -t -A critical-failure.eu -lnomad 'tmux attach -tsandman || tmux new -ssandman'"
+[[ -s "$HOME/.zsh-aliases" ]] && source "$HOME/.zsh-aliases"
 
 rvm use default
 ## END OF FILE #################################################################
