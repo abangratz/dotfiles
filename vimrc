@@ -4,7 +4,7 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
+set runtimepath^=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
 call dein#begin(expand('~/.vim/dein'))
@@ -17,7 +17,7 @@ call dein#add(expand('~/.vim/dein/repos/github.com/Shougo/dein.vim'))
 " call dein#add('Shougo/vimproc.vim', { 'build': 'make'})
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
-"
+call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 call dein#add('kchmck/vim-coffee-script')
 call dein#add('lmeijvogel/vim-yaml-helper')
 call dein#add('vim-ruby/vim-ruby')
