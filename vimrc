@@ -65,6 +65,7 @@ call dein#add('elixir-lang/vim-elixir')
 call dein#add('avdgaag/vim-phoenix')
 call dein#add('exu/pgsql.vim')
 call dein#add('ElmCast/elm-vim')
+call dein#add('diepm/vim-rest-console')
 
 " Required:
 call dein#end()
