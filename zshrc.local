@@ -30,6 +30,8 @@ if [ -r ~/.zshrc -a -r ~/.zshrc.global -a ! -r ~/.zshrc.local ] ; then
     printf '-!-\n'
 fi
 
+[[ -a "/etc/zsh_command_not_found" ]] && . /etc/zsh_command_not_found
+
 ## Now, we'll give a few examples of what you might want to use in your
 ## .zshrc.local file (just copy'n'paste and uncomment it there):
 
@@ -222,9 +224,9 @@ fi
 alias ats="aptitude search"
 ctg() { ctags -a -e -f TAGS --tag-relative -R app lib vendor }
 
-if ! check_com ast &>/dev/null ; then
-  ast() { autossh -t "$@" 'tmux attach -tsandman || tmux new -ssandman' }
-  compdef ast=ssh
+if ! check_com a &>/dev/null ; then
+  a() { autossh -t -A "$@" 'tmux attach -tsandman || tmux new -ssandman' }
+  compdef a=ssh
 fi
 export VISUAL='gvim -f'
 if ! check_com acks &>/dev/null ; then
@@ -258,6 +260,8 @@ if [ -n "$TMUX" ] ; then
 	tmux setenv TMUXPWD_${I} $PWD
 fi
 
+path+=("$HOME/.exenv/bin")
+eval "$(exenv init -)"
 export NVM_DIR="/home/nomad/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
@@ -266,19 +270,7 @@ path+=("$HOME/bin" "$HOME/.rvm/bin" )
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
-alias ack=ack-grep
-alias hdeploy="git push origin master && git push heroku master"
-alias hdbm='heroku run rake db:migrate'
-alias be='bundle exec'
-alias rs='rails server'
-alias rc='rails console'
-
-unalias ag
-unalias agi
-
-deploy() {
-    bundle exec cap $1 deploy
-}
+[[ -s "$HOME/.zsh-aliases" ]] && source "$HOME/.zsh-aliases"
 
 rvm use default
 ## END OF FILE #################################################################

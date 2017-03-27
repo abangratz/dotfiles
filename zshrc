@@ -2290,7 +2290,7 @@ check_com 0 || alias 0='return 0'
 
 # for really lazy people like mika:
 check_com S &>/dev/null || alias S='screen'
-check_com s &>/dev/null || alias s='ssh'
+check_com s &>/dev/null || alias s='autossh'
 
 # especially for roadwarriors using GNU screen and ssh:
 if ! check_com asc &>/dev/null ; then
@@ -2398,7 +2398,7 @@ if [[ -r /etc/debian_version ]] ; then
     salias ag="apt-get upgrade"
     #a3# Execute \kbd{apt-get update}
     salias au="apt-get update"
-    #a3# Execute \kbd{aptitude update ; aptitude upgrade}
+    #a3# Execute \kbd{apt update ; apt upgrade}
     salias -a up="apt update ; apt upgrade"
     #a3# Execute \kbd{dpkg-buildpackage}
     alias dbp='dpkg-buildpackage'

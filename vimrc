@@ -11,13 +11,13 @@ call dein#begin(expand('~/.vim/dein'))
 
 " Let dein manage dein
 " Required:
-call dein#add('Shougo/dein.vim')
+call dein#add(expand('~/.vim/dein/repos/github.com/Shougo/dein.vim'))
 
 " Add or remove your plugins here:
+" call dein#add('Shougo/vimproc.vim', { 'build': 'make'})
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('Shougo/vimproc.vim', {'build': 'make'})
-
 call dein#add('kchmck/vim-coffee-script')
 call dein#add('lmeijvogel/vim-yaml-helper')
 call dein#add('vim-ruby/vim-ruby')
@@ -60,8 +60,12 @@ call dein#add('tpope/vim-flagship')
 call dein#add('terryma/vim-multiple-cursors')
 call dein#add('paredit.vim')
 call dein#add('Matt-Deacalion/vim-systemd-syntax')
+call dein#add('elzr/vim-json')
 call dein#add('elixir-lang/vim-elixir')
 call dein#add('avdgaag/vim-phoenix')
+call dein#add('exu/pgsql.vim')
+call dein#add('ElmCast/elm-vim')
+call dein#add('diepm/vim-rest-console')
 
 " Required:
 call dein#end()
@@ -108,7 +112,7 @@ unlet s:cpo_save
 set autoindent
 set backspace=indent,eol,start
 set history=50
-set modelines=5
+set modelines=3
 set printoptions=paper:a4
 set ruler
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.pdf
@@ -157,15 +161,14 @@ let g:org_todo_keywords = ['TODO', 'WORK', 'DONE', '|']
 let g:org_todo_keyword_faces = [['TODO', 'magenta'],['WORK', 'green'],['DONE', 'yellow']]
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 let g:rails_statusline = 0
-autocmd FileType ruby setlocal sw=2
-autocmd FileType ruby setlocal ts=2
-autocmd FileType ruby setlocal sts=2
-autocmd FileType ruby setlocal sta
-autocmd FileType ruby setlocal et
-autocmd FileType ruby call PareditInitBuffer()
-autocmd FileType javascript call PareditInitBuffer()
-autocmd FileType coffee call PareditInitBuffer()
-
+autocmd FileType ruby,json setlocal sw=2
+autocmd FileType ruby,json setlocal ts=2
+autocmd FileType ruby,json setlocal sts=2
+autocmd FileType ruby,json setlocal sta
+autocmd FileType ruby,json setlocal et
+" autocmd FileType ruby,json call PareditInitBuffer()
+" autocmd FileType javascript call PareditInitBuffer()
+" autocmd FileType coffee call PareditInitBuffer()
 set wildignore+=*vendor/*,*/tmp/*,*/.git/*,*/log/*,tags,*node_modules/*
 let g:ctrlp_custom_ignore = '\v[\/](vendor|coverage)/'
 let g:ctrlp_open_new_file = 't'
@@ -208,4 +211,6 @@ let g:airline_symbols.space = " "
 let g:dbext_default_profile_PG_event = 'type=PGSQL:user=tony:dbname=event'
 let g:dbext_default_profile_PG_falter = 'type=PGSQL:user=tony:dbname=falter'
 let g:solarized_termtrans = 1
+
+let g:elm_format_autosave = 1
 colorscheme solarized
