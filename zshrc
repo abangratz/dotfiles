@@ -2393,13 +2393,13 @@ if [[ -r /etc/debian_version ]] ; then
     #a3# Execute \kbd{apt-get install}
     salias agi="apt-get install"
     #a3# Execute \kbd{aptitude install}
-    salias ati="aptitude install"
+    salias ati="apt install"
     #a3# Execute \kbd{apt-get upgrade}
     salias ag="apt-get upgrade"
     #a3# Execute \kbd{apt-get update}
     salias au="apt-get update"
-    #a3# Execute \kbd{aptitude update ; aptitude safe-upgrade}
-    salias -a up="aptitude update ; aptitude safe-upgrade"
+    #a3# Execute \kbd{aptitude update ; aptitude upgrade}
+    salias -a up="apt update ; apt upgrade"
     #a3# Execute \kbd{dpkg-buildpackage}
     alias dbp='dpkg-buildpackage'
     #a3# Execute \kbd{grep-excuses}
