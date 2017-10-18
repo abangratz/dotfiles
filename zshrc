@@ -2398,7 +2398,7 @@ if [[ -r /etc/debian_version ]] ; then
     salias ag="apt-get upgrade"
     #a3# Execute \kbd{apt-get update}
     salias au="apt-get update"
-    #a3# Execute \kbd{aptitude update ; aptitude safe-upgrade}
+    #a3# Execute \kbd{apt update ; apt upgrade}
     salias -a up="apt update ; apt upgrade"
     #a3# Execute \kbd{dpkg-buildpackage}
     alias dbp='dpkg-buildpackage'
