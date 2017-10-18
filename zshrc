@@ -2943,18 +2943,18 @@ brltty() {
 # just press 'asdf' keys to toggle between dvorak and us keyboard layout
 aoeu() {
     echo -n 'Switching to us keyboard layout: '
-    [[ -z "$DISPLAY" ]] && $SUDO loadkeys us &>/dev/null || setxkbmap us &>/dev/null
+    [[ -z "$DISPLAY" ]] && $SUDO loadkeys us &>/dev/null || setxkbmap us -option compose:caps &>/dev/null
     echo 'Done'
 }
 asdf() {
     echo -n 'Switching to dvorak keyboard layout: '
-    [[ -z "$DISPLAY" ]] && $SUDO loadkeys dvorak &>/dev/null || setxkbmap dvorak &>/dev/null
+    [[ -z "$DISPLAY" ]] && $SUDO loadkeys dvorak &>/dev/null || setxkbmap dvorak -option compose:caps &>/dev/null
     echo 'Done'
 }
 # just press 'asdf' key to toggle from neon layout to us keyboard layout
 uiae() {
     echo -n 'Switching to us keyboard layout: '
-    setxkbmap us && echo 'Done' || echo 'Failed'
+    setxkbmap us -option compose:caps && echo 'Done' || echo 'Failed'
 }
 
 # set up an ipv6 tunnel
@@ -4361,3 +4361,9 @@ zrclocal
 # End:
 
 
+
+PATH="/home/tony/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/tony/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/tony/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/tony/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/tony/perl5"; export PERL_MM_OPT;

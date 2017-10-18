@@ -225,7 +225,7 @@ alias ats="aptitude search"
 ctg() { ctags -a -e -f TAGS --tag-relative -R app lib vendor }
 
 if ! check_com a &>/dev/null ; then
-  a() { autossh -t -A "$@" 'tmux attach -tsandman || tmux new -ssandman' }
+  a() { autossh -t -A "$@" }
   compdef a=ssh
 fi
 export VISUAL='gvim -f'
@@ -265,7 +265,7 @@ eval "$(exenv init -)"
 export NVM_DIR="/home/nomad/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-path+=("$HOME/bin" "$HOME/.rvm/bin" )
+path+=("$HOME/bin" "$HOME/.rvm/bin" "$HOME/.local/bin" )
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator

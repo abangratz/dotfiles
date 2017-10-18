@@ -22,9 +22,9 @@ call dein#add('kchmck/vim-coffee-script')
 call dein#add('lmeijvogel/vim-yaml-helper')
 call dein#add('vim-ruby/vim-ruby')
 call dein#add('scrooloose/nerdtree')
-call dein#add('ag.vim')
-call dein#add('utl.vim')
-call dein#add('matchit.zip')
+call dein#add('vim-scripts/ag.vim')
+call dein#add('vim-scripts/utl.vim')
+call dein#add('vim-scripts/matchit.zip')
 call dein#add('leafgarland/typescript-vim')
 call dein#add('jason0x43/vim-js-indent')
 call dein#add('Quramy/tsuquyomi')
@@ -51,14 +51,14 @@ call dein#add('kien/ctrlp.vim')
 call dein#add('groenewege/vim-less')
 call dein#add('kien/rainbow_parentheses.vim')
 call dein#add('mbbill/undotree')
-call dein#add('ShowTrailingWhitespace')
-call dein#add('DeleteTrailingWhitespace')
+call dein#add('vim-scripts/ShowTrailingWhitespace')
+call dein#add('vim-scripts/DeleteTrailingWhitespace')
 call dein#add('drmikehenry/vim-fontsize')
 call dein#add('bling/vim-bufferline')
 call dein#add('bling/vim-airline')
 call dein#add('tpope/vim-flagship')
 call dein#add('terryma/vim-multiple-cursors')
-call dein#add('paredit.vim')
+call dein#add('vim-scripts/paredit.vim')
 call dein#add('Matt-Deacalion/vim-systemd-syntax')
 call dein#add('elzr/vim-json')
 call dein#add('elixir-lang/vim-elixir')
@@ -214,3 +214,18 @@ let g:solarized_termtrans = 1
 
 let g:elm_format_autosave = 1
 colorscheme solarized
+
+let g:vrc_output_buffer_name = '__VRC_OUTPUT.json'
+let g:vrc_output_buffer_name = '__VRC_OUTPUT.json'
+let g:vrc_elasticsearch_support = 1
+let g:vrc_curl_opts = {
+  \ '--connect-timeout' : 10,
+  \ '-b': '/path/to/cookie',
+  \ '-c': '/path/to/cookie',
+  \ '-L': '',
+  \ '-i': '',
+  \ '--max-time': 60,
+  \ '--ipv4': '',
+  \ '-k': '',
+  \ '-s': '',
+\}
