@@ -16,8 +16,11 @@ if dein#load_state(expand('~/.config/nvim/dein'))
 
 	" Add or remove your plugins here:
 	" call dein#add('Shougo/vimproc.vim', { 'build': 'make'})
+	call dein#add('AndrewRadev/splitjoin.vim')
 	call dein#add('Shougo/neosnippet.vim')
 	call dein#add('Shougo/neosnippet-snippets')
+	call dein#add('Shougo/deoplete.nvim')
+	call dein#add('fishbullet/deoplete-ruby')
 	call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 	call dein#add('kchmck/vim-coffee-script')
 	call dein#add('lmeijvogel/vim-yaml-helper')
@@ -68,7 +71,7 @@ if dein#load_state(expand('~/.config/nvim/dein'))
 	call dein#add('exu/pgsql.vim')
 	call dein#add('ElmCast/elm-vim')
 	call dein#add('diepm/vim-rest-console')
-
+	call dein#add('vim-scripts/TaskList.vim')
 	" Required:
 	call dein#end()
 	call dein#save_state()
@@ -125,12 +128,12 @@ set showtabline=2
 set guioptions-=e
 set viminfo='20,\"50
 set tw=120
-set sw=4
-set ts=4
+set sw=2
+set ts=2
 set bg=dark
 "set digraph " unset, no good for programming when you have compose
 set smartindent
-set softtabstop=4
+set softtabstop=2
 set smarttab
 set nohlsearch
 set showmatch
@@ -138,7 +141,8 @@ set modeline
 set modelines=5
 set number
 iab YDT         <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
-ia  DATE		<C-R>=strftime("%F %T %z")<CR>
+ia  TIME    <C-R>=strftime("%F %T %z")<CR>
+ia  DATE	<C-R>=strftime("%F")<CR>
 ia  SDATENUM      <C-R>=strftime("%Y%m%d001")<CR>
 ia  SDATE         <C-R>=strftime("%Y%m%d")<CR>
 let g:explVertical=1
@@ -156,10 +160,10 @@ let spell_language_list="de_AT,en_US"
 let spell_executable="aspell"
 " ruby stuff: completion
 " autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete " Keep that for v7
-let g:rubycomplete_buffer_loading = 1
-let g_rubycomplete_classes_in_global = 1
-let g:rubycomplete_rails = 1
-let g:rubycomplete_include_object = 1
+" let g:rubycomplete_buffer_loading = 1
+" let g_rubycomplete_classes_in_global = 1
+" let g:rubycomplete_rails = 1
+" let g:rubycomplete_include_object = 1
 "org mode customization
 let g:org_todo_keywords = ['TODO', 'WORK', 'DONE', '|']
 let g:org_todo_keyword_faces = [['TODO', 'magenta'],['WORK', 'green'],['DONE', 'yellow']]
@@ -220,16 +224,22 @@ let g:elm_format_autosave = 1
 "colorscheme solarized
 
 let g:vrc_output_buffer_name = '__VRC_OUTPUT.json'
-let g:vrc_output_buffer_name = '__VRC_OUTPUT.json'
 let g:vrc_elasticsearch_support = 1
 let g:vrc_curl_opts = {
   \ '--connect-timeout' : 10,
-  \ '-b': '/path/to/cookie',
-  \ '-c': '/path/to/cookie',
+  \ '-b': '/tmp/cookie',
+  \ '-c': '/tmp/cookie',
   \ '-L': '',
   \ '-i': '',
   \ '--max-time': 60,
-  \ '--ipv4': '',
   \ '-k': '',
   \ '-s': '',
 \}
+let g:deoplete#enable_at_startup = 1
+function g:Multiple_cursors_before()
+  let g:deoplete#disable_auto_complete = 1
+endfunction
+function g:Multiple_cursors_after()
+  let g:deoplete#disable_auto_complete = 0
+endfunction
+

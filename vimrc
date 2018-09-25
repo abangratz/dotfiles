@@ -121,12 +121,12 @@ set showtabline=2
 set guioptions-=e
 set viminfo='20,\"50
 set tw=120
-set sw=4
-set ts=4
+set sw=2
+set ts=2
 set bg=dark
 "set digraph " unset, no good for programming when you have compose
 set smartindent
-set softtabstop=4
+set softtabstop=2
 set smarttab
 set nohlsearch
 set showmatch

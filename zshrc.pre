@@ -2,5 +2,6 @@ export PAGER=most
 export BROWSER=chromium
 export GRMLPROMPT=1
 export BATTERY=1
-export EDITOR=gvim
+export EDITOR=nvim
 export PSQL_EDITOR=vim
+export ERL_AFLAGS="-kernel shell_history enabled"

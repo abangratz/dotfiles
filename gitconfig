@@ -1,8 +1,8 @@
 [user]
 	name = Anton Bangratz
-	email = anton.bangratz@gmail.com
+	email = anton@platogo.com
 [merge]
-	tool = gvimdiff
+	tool = vimdiff
 	log = true
 [alias]
 	ci = commit

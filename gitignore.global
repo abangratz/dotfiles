@@ -1,6 +1,11 @@
+.rspec-local
+TODO.tony*
 TAGS
 tags
 .*.swp
 /.rvmrc
 /.ruby-*
 config/projections.json
+/log/*.log.?
+.DS_Store
+.rspec
