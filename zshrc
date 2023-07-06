@@ -512,15 +512,15 @@ fi
 isdarwin && xsource /sw/bin/init.sh
 
 # load our function and completion directories
-for fdir in /usr/share/grml/zsh/completion /usr/share/grml/zsh/functions; do
-    fpath=( ${fdir} ${fdir}/**/*(/N) ${fpath} )
-    if [[ ${fpath} == '/usr/share/grml/zsh/functions' ]] ; then
-        for func in ${fdir}/**/[^_]*[^~](N.) ; do
-            zrcautoload ${func:t}
-        done
-    fi
-done
-unset fdir func
+# for fdir in /usr/share/grml/zsh/completion /usr/share/grml/zsh/functions; do
+#     fpath=( ${fdir} ${fdir}/**/*(/N) ${fpath} )
+#     if [[ ${fpath} == '/usr/share/grml/zsh/functions' ]] ; then
+#         for func in ${fdir}/**/[^_]*[^~](N.) ; do
+#             zrcautoload ${func:t}
+#         done
+#     fi
+# done
+# unset fdir func
 
 # support colors in less
 export LESS_TERMCAP_mb=$'\E[01;31m'
@@ -2395,11 +2395,17 @@ if [[ -r /etc/debian_version ]] ; then
     #a3# Execute \kbd{aptitude install}
     salias ati="apt install"
     #a3# Execute \kbd{apt-get upgrade}
-    salias ag="apt-get upgrade"
+    # salias ag="apt-get upgrade"
     #a3# Execute \kbd{apt-get update}
     salias au="apt-get update"
     #a3# Execute \kbd{apt update ; apt upgrade}
-    salias -a up="apt update ; apt upgrade"
+    # salias -a up="apt update ; apt upgrade"
+    up() {
+        emulate -L zsh
+        sudo apt update
+        sudo apt upgrade
+        /usr/bin/fd -tf updates-available ${BYOBU_RUN_DIR} |xargs rm
+    }
     #a3# Execute \kbd{dpkg-buildpackage}
     alias dbp='dpkg-buildpackage'
     #a3# Execute \kbd{grep-excuses}
@@ -2941,21 +2947,21 @@ brltty() {
 }
 
 # just press 'asdf' keys to toggle between dvorak and us keyboard layout
-aoeu() {
-    echo -n 'Switching to us keyboard layout: '
-    [[ -z "$DISPLAY" ]] && $SUDO loadkeys us &>/dev/null || setxkbmap us -option compose:caps &>/dev/null
-    echo 'Done'
-}
-asdf() {
-    echo -n 'Switching to dvorak keyboard layout: '
-    [[ -z "$DISPLAY" ]] && $SUDO loadkeys dvorak &>/dev/null || setxkbmap dvorak -option compose:caps &>/dev/null
-    echo 'Done'
-}
-# just press 'asdf' key to toggle from neon layout to us keyboard layout
-uiae() {
-    echo -n 'Switching to us keyboard layout: '
-    setxkbmap us -option compose:caps && echo 'Done' || echo 'Failed'
-}
+# aoeu() {
+#     echo -n 'Switching to us keyboard layout: '
+#     [[ -z "$DISPLAY" ]] && $SUDO loadkeys us &>/dev/null || setxkbmap us -option compose:caps &>/dev/null
+#     echo 'Done'
+# }
+# asdf() {
+#     echo -n 'Switching to dvorak keyboard layout: '
+#     [[ -z "$DISPLAY" ]] && $SUDO loadkeys dvorak &>/dev/null || setxkbmap dvorak -option compose:caps &>/dev/null
+#     echo 'Done'
+# }
+# # just press 'asdf' key to toggle from neon layout to us keyboard layout
+# uiae() {
+#     echo -n 'Switching to us keyboard layout: '
+#     setxkbmap us -option compose:caps && echo 'Done' || echo 'Failed'
+# }
 
 # set up an ipv6 tunnel
 ipv6-tunnel() {
@@ -4366,3 +4372,25 @@ zrclocal
 # PERL_LOCAL_LIB_ROOT="/home/tony/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 # PERL_MB_OPT="--install_base \"/home/tony/perl5\""; export PERL_MB_OPT;
 # PERL_MM_OPT="INSTALL_BASE=/home/tony/perl5"; export PERL_MM_OPT;
+
+zstyle ':zle:replace-pattern' edit-previous false
+autoload -Uz replace-string
+autoload -Uz replace-string-again
+zle -N replace-pattern replace-string
+zle -N replace-string-again
+
+
+pcd () {
+	if (($# == 0)); then
+		dirs -lp
+	else
+		__TARGET_DIR=`dirs -pl |rg "$1\\$" 2>/dev/null |head -1`
+		if [[ -z $__TARGET_DIR ]]; then
+			print "No entry found in dirstack: $1"
+		else
+			cd $__TARGET_DIR
+		fi
+	fi
+}
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

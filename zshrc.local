@@ -1,3 +1,4 @@
+# -*- mode: shell-script -*-
 # Filename:      /etc/skel/.zshrc
 # Purpose:       config file for zsh (z shell)
 # Authors:       (c) grml-team (grml.org)
@@ -38,10 +39,10 @@ fi
 ## ZLE tweaks ##
 
 ## use the vi navigation keys (hjkl) besides cursor keys in menu completion
-#bindkey -M menuselect 'h' vi-backward-char        # left
-#bindkey -M menuselect 'k' vi-up-line-or-history   # up
-#bindkey -M menuselect 'l' vi-forward-char         # right
-#bindkey -M menuselect 'j' vi-down-line-or-history # bottom
+bindkey -M menuselect 'h' vi-backward-char        # left
+bindkey -M menuselect 'k' vi-up-line-or-history   # up
+bindkey -M menuselect 'l' vi-forward-char         # right
+bindkey -M menuselect 'j' vi-down-line-or-history # bottom
 
 ## set command prediction from history, see 'man 1 zshcontrib'
 #is4 && zrcautoload predict-on && \
@@ -61,10 +62,10 @@ fi
 #zle -N mquote && bindkey '^q' mquote
 
 ## define word separators (for stuff like backward-word, forward-word, backward-kill-word,..)
-#WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>' # the default
-#WORDCHARS=.
-#WORDCHARS='*?_[]~=&;!#$%^(){}'
-#WORDCHARS='${WORDCHARS:s@/@}'
+WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>' # the default
+WORDCHARS=.
+WORDCHARS='*?_[]~=&;!#$%^(){}'
+WORDCHARS='${WORDCHARS:s@/@}'
 
 # just type 'cd ...' to get 'cd ../..'
 #rationalise-dot() {
@@ -228,7 +229,6 @@ if ! check_com a &>/dev/null ; then
   a() { autossh -t -A "$@" }
   compdef a=ssh
 fi
-export VISUAL='gvim -f'
 if ! check_com acks &>/dev/null ; then
 	acks() { ack-grep $@ spec/ }
 	compdef acks=grep
@@ -244,14 +244,17 @@ if ! check_com office &>/dev/null ; then
 	}
 fi
 
-if ! check_com home &>/dev/null ; then
-	home() {
-		xrandr --output HDMI1 --off
-		synclient TapButton1=1
-		synclient TapButton2=2
-		synclient TapButton3=3
-	}
-fi
+# if ! check_com home &>/dev/null ; then
+# 	home() {
+# 		xrandr --output HDMI1 --off
+# 		synclient TapButton1=1
+# 		synclient TapButton2=2
+# 		synclient TapButton3=3
+# 	}
+# fi
+
+# My completions
+fpath=(~/.config/my-completions $fpath)
 
 # Keep PWD for current TMUX window
 
@@ -265,12 +268,47 @@ eval "$(exenv init -)"
 export NVM_DIR="/home/nomad/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-path+=("$HOME/bin" "$HOME/.rvm/bin" "$HOME/.local/bin" )
+path+=("/snap/bin" "$HOME/bin" "$HOME/.rvm/bin" "$HOME/.local/bin" "$HOME/.cache/rebar3/bin" "$HOME/.cargo/bin")
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 [[ -s "$HOME/.zsh-aliases" ]] && source "$HOME/.zsh-aliases"
+[[ -s "$HOME/.asdf/asdf.sh" ]] && source "$HOME/.asdf/asdf.sh"
+[[ -s "$HOME/.asdf/completions/asdf.bash" ]] && source "$HOME/.asdf/completions/asdf.bash"
 
-rvm use default
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
+
+function ft-markminibuf() {
+    ft_zle_state[minibuffer]=yes
+    ft-psvx
+    zle "$1"
+    ft_zle_state[minibuffer]=no
+    ft-psvx
+}
+
+function ft-replace-pattern() {
+    ft-markminibuf replace-pattern
+}
+zle -N ft-replace-pattern
+
+if (( ${+widgets[replace-pattern]} )); then
+    bindkey -M vicmd '^x,' ft-replace-pattern
+    bindkey -M viins '^x,' ft-replace-pattern
+fi
+
+if (( ${+widgets[replace-string-again]} )); then
+    bindkey -M vicmd '^x.' replace-string-again
+    bindkey -M viins '^x.' replace-string-again
+fi
+
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+##
+export PGDATABASE=pmp_development
 ## END OF FILE #################################################################

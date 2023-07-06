@@ -1,4 +1,9 @@
+GPATH
+GTAGS
+GRTAGS
+/coverage
 .rspec-local
+.tool-versions
 TODO.tony*
 TAGS
 tags
@@ -9,3 +14,6 @@ config/projections.json
 /log/*.log.?
 .DS_Store
 .rspec
+.#*
+.mix_tasks
+.rake_tasks

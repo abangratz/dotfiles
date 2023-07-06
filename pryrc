@@ -146,10 +146,10 @@ blue = ->(text) { Pry.color ? "\001\e[0;34m\002#{text}\001\e[0m\002" : text.to_s
 bold = ->(text) { Pry.color ? "\001\e[1m\002#{text}\001\e[0m\002"    : text.to_s }
 prompt_separator = defined?(RbReadline) ? '>' : "\u00BB"
 separator = -> { red.(prompt_separator) }
-name = defined?(app) ? 'rails' : 'pry'
+name = 'pry' #defined?(app) ? 'rails' : 'pry'
 colored_name = -> { blue.(name) }
 
-line = ->(pry) { "[#{bold.(pry.input_array.size)}] " }
+line = ->(pry) { "[#{bold.(pry.input_ring.size)}] " }
 target_string = ->(object, level) do
   level = 0 if level < 0
   unless (string = Pry.view_clip(object)) == 'main'
@@ -165,10 +165,11 @@ Pry.config.prompt = [
   end,
   ->(object, level, pry) do      # Wait prompt in multiline input
     spaces = ' ' * (
-      "[#{pry.input_array.size}] ".size +  # Uncolored `line.(pry)`
+      "[#{pry.input_ring.size}] ".size +  # Uncolored `line.(pry)`
       name.size +
       target_string.(object, level).size
     )
     "#{spaces} #{separator.()}  "
   end
 ]
+Pry.config.editor = 'vim'

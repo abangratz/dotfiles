@@ -1,7 +1,12 @@
 export PAGER=most
-export BROWSER=chromium
+export BROWSER=google-chrome
 export GRMLPROMPT=1
-export BATTERY=1
-export EDITOR=nvim
+export BATTERY=0
+export ALTERNATE_EDITOR=emacs
+export EDITOR=emacsclient
+export VISUAL=emacsclient
 export PSQL_EDITOR=vim
 export ERL_AFLAGS="-kernel shell_history enabled"
+export SUDO_EDITOR=vim
+export RUBYOPT='-W:no-deprecated'
+export GDK_DPI_SCALE=1.4
