@@ -1,0 +1,16 @@
+ alias v="emacsclient -cn"
+ alias vpn="nmcli c up Platogo"
+ alias be="bundle exec"
+ alias rails="bundle exec rails"
+ alias dock="xrandr --output DP-1-3-1 --primary --auto --output DP-1-3-2 --auto --left-of DP-1-3-1 --output eDP-1-1 --auto --right-of DP-1-3-1"
+ # alias home="xrandr --output DP-1-3-1 --auto --right-of eDP-1-1 --primary --output eDP-1-1 --auto"
+ alias home="xrandr --output DP-1-3-1 --primary --auto --right-of HDMI-1-1 --output HDMI-1-1 --mode 3840x2160 --output eDP-1-1 --off"
+ alias em="cd $HOME/.emacs.d && git pull && cd $HOME && emacs --batch -l $HOME/.emacs.d/init.el --eval=\"(configuration-layer/update-packages t)\" && emacs --daemon"
+ alias adg="sudo apt update && sudo apt upgrade -y"
+ alias fd=fdfind
+ alias doom="emacs --with-profile doomemacs"
+ alias space="emacs --with-profile spacemacs"
+ alias wallet="PATH=\"/home/anton/elixir/elixir-ls-otp-24:$PATH\" emacs --with-profile doomemacs /home/anton/projects/github/platogo/wallet"
+ alias pals="PATH=\"/home/anton/elixir/elixir-ls-otp-26:$PATH\" emacs --with-profile doomemacs /home/anton/projects/github/platogo/pals"
+ # Use fzf and bat for previewing commits from git log
+ alias gl="git log --oneline --color=always --abbrev | fzf --ansi --preview='git show {1} | bat --color=always --style=numbers'"
